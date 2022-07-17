@@ -1,8 +1,8 @@
 {
   "data_folder":
   {
-    "raw": "raw",
-    "staged": "staged",
-    "processed": "processed"
+    "raw": "data/raw/raw_data.csv",
+    "staged": "data/staged/staged_data.csv",
+    "processed": "data/processed/processed_data.csv"
   }
 }
