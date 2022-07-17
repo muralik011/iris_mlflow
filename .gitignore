@@ -1,2 +1,4 @@
 secrets.json
 /data
+__pycache__/
+*.py[cod]
