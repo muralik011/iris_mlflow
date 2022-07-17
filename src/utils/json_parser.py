@@ -15,6 +15,8 @@ class JSONParser:
         except json.decoder.JSONDecodeError as json_err:
             print(json_err)
             json_data = None
+        else:
+            print(f'json file {self.file} read successful')
         return json_data
 
     def get_values(self, keys: list):
@@ -31,4 +33,6 @@ class JSONParser:
             except TypeError as type_err:
                 print(f'type error: {type_err}')
                 value = None
+            else:
+                print(f'json value {keys} read successful')
         return value
