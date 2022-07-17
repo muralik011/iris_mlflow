@@ -1,35 +1,34 @@
 import json
 
 
-class SecretsParser:
-    def __init__(self):
-        pass
+class JSONParser:
+    def __init__(self, file):
+        self.file = file
 
-    @staticmethod
-    def read_secrets():
+    def read_json(self):
         try:
-            with open('secrets.json', 'r') as secrets_json:
-                secrets = json.load(secrets_json)
+            with open(self.file, 'r') as json_file:
+                json_data = json.load(json_file)
         except FileNotFoundError as fnf_err:
             print(fnf_err)
-            secrets = None
+            json_data = None
         except json.decoder.JSONDecodeError as json_err:
             print(json_err)
-            secrets = None
-        return secrets
+            json_data = None
+        return json_data
 
     def get_values(self, keys: list):
-        secrets = self.read_secrets()
+        json_data = self.read_json()
         value = None
-        if secrets is not None:
+        if json_data is not None:
             try:
-                value = secrets[keys[0]]
+                value = json_data[keys[0]]
                 for key in keys[1:]:
                     value = value[key]
             except KeyError as key_err:
-                print(key_err)
+                print(f'key error: {key_err}')
                 value = None
             except TypeError as type_err:
-                print(type_err)
+                print(f'type error: {type_err}')
                 value = None
         return value
