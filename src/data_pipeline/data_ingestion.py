@@ -34,3 +34,4 @@ def read_table_from_database(db_connection):
     return df
 
 print(read_table_from_database(connect_postgres()))
+
