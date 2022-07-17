@@ -40,5 +40,6 @@ def save_raw_data():
     raw_data_dir = config_parser.get_values(['data_folder', 'raw'])
     df.to_csv(os.path.join('data', raw_data_dir, 'iris.csv'), index=False)
 
+
 if __name__ == "__main__":
     save_raw_data()
